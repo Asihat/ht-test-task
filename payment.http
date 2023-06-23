@@ -1,0 +1,72 @@
+###
+# Метод начисления средств на баланс.
+# curl --location 'http://localhost/api/add'
+#--form 'user_id="1"'
+#--form 'amount="10"'
+POST http://localhost/api/add
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="amount"
+
+1
+--WebAppBoundary--
+
+###
+# Метод списания средств с баланса.
+# curl --location 'http://localhost/api/sub'
+#--form 'user_id="1"'
+#--form 'amount="100"'
+POST http://localhost/api/sub
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="amount"
+
+1
+--WebAppBoundary--
+
+###
+# Метод перевода средств от пользователя к пользователю.
+# curl --location 'http://localhost/api/transfer'
+#--form 'sender_id="1"'
+#--form 'getter_id="2"'
+#--form 'amount="100"'
+POST http://localhost/api/transfer
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="sender_id"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="getter_id"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="amount"
+
+1
+--WebAppBoundary--
+
+###
+# Метод получения текущего баланса пользователя.
+# curl --location 'http://localhost/api/balance/1'
+#--header 'Accept: application/json'
+GET http://localhost/api/balance/1
+Accept: application/json
+
+###
+
+
+
+
+
